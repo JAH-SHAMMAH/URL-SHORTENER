@@ -8,7 +8,7 @@ from fastapi.encoders import jsonable_encoder
 import qrcode
 from io import BytesIO
 from starlette.responses import StreamingResponse
-from utils import *
+from app.utils import *
 from schemas import *
 from database import *
 from models import *

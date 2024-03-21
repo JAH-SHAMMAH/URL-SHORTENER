@@ -9,16 +9,20 @@ email-validator==2.1.0.post1
 exceptiongroup==1.2.0
 fastapi==0.110.0
 greenlet==3.0.3
+gunicorn==21.2.0
 h11==0.14.0
 httpcore==1.0.4
 httptools==0.6.1
 httpx==0.27.0
 idna==3.6
+iniconfig==2.0.0
 itsdangerous==2.1.2
 Jinja2==3.1.3
 MarkupSafe==2.1.5
 orjson==3.9.15
+packaging==24.0
 pillow==10.2.0
+pluggy==1.4.0
 psycopg2==2.9.9
 pydantic==2.6.2
 pydantic-extra-types==2.5.0
@@ -26,6 +30,7 @@ pydantic-settings==2.2.1
 pydantic_core==2.16.3
 PyJWT==2.8.0
 pypng==0.20220715.0
+pytest==8.1.1
 python-dotenv==1.0.1
 python-multipart==0.0.9
 PyYAML==6.0.1
@@ -33,6 +38,7 @@ qrcode==7.4.2
 sniffio==1.3.1
 SQLAlchemy==2.0.27
 starlette==0.36.3
+tomli==2.0.1
 typing_extensions==4.10.0
 ujson==5.9.0
 uvicorn==0.27.1

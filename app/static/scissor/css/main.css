@@ -1,4 +1,4 @@
-/* Reset default margin and padding */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,6 @@
 
 
   
-  /* Global styles */
   body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -19,10 +18,9 @@
     padding: 0 20px;
   }
   
-  /* Header styles */
   .header {
     background-color: #343a40;
-    color: #fff;
+    color: #350404;
     padding: 20px 0;
   }
   
@@ -30,7 +28,6 @@
     font-size: 1.5rem;
   }
   
-  /* Main styles */
   .main {
     padding: 50px 0;
   }
@@ -78,7 +75,7 @@
     font-weight: bold;
   }
   
-  /* Footer styles */
+
   .footer {
     background-color: #343a40;
     color: #fff;
@@ -90,5 +87,8 @@
     font-size: 0.9rem;
   }
 
+  .contain{
+    color: red;
+  }
 
   

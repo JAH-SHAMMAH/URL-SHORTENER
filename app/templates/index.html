@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scissor - URL Shortener</title>
-    <link rel="stylesheet" href="/app/static/scissor/css/main.css" />
+    <link rel="icon" href="app/img/logo.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', path='/scissor/css/main.css') }}"
+    />
   </head>
   <body>
     <header class="header">
       <div class="container">
         <h1 class="logo">Scissor - URL Shortener</h1>
+        <ul class="nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
       </div>
-      <!-- <ul>
-        <li><a href="/statistics">Statistics</a></li>
-        <li><a href="/get-qr-code">Get QR Code</a></li>
-        <li><a href="/original-url">Original URL</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul> -->
     </header>
 
     <main class="main">
@@ -32,7 +36,7 @@
                 class="input"
                 placeholder="Enter Long URL"
               />
-              <button type="submit">SHORTEN URL</button>
+              <button class="button" type="submit">SHORTEN URL</button>
             </form>
           </div>
           <div>
@@ -47,20 +51,66 @@
 
         <section id="custom-urls" class="section">
           <h2 class="section-title">Custom URLs</h2>
+          <div class="input-container">
+            <form action="/custom_shorten" method="post">
+              <input
+                type="url"
+                id="long-url"
+                name="original_url"
+                class="input"
+                placeholder="Enter Custom URL"
+              />
+              <button class="button" type="submit">CUSTOMIZE URL</button>
+            </form>
+          </div>
+          <div>
+            <a
+              href="http://127.0.0.1:8000/{{new_url}}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{new_url}}</a
+            >
+          </div>
         </section>
 
         <section id="qr-code-generation" class="section">
           <h2 class="section-title">QR Code Generation</h2>
-          <a
-            href="http://127.0.0.1:8000/{{qr}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            >{{qr}}</a
-          >
+          <div class="input-container">
+            <form action="/generate_qr" method="get">
+              <input
+                type="url"
+                id="long-url"
+                name="original_url"
+                class="input"
+                placeholder="Enter Long URL"
+              />
+              <button class="button" type="submit">GENERATE QR-CODE</button>
+            </form>
+          </div>
+          <div>
+            <a
+              href="http://127.0.0.1:8000/{{generate_qr}}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{generate_qr}}</a
+            >
+          </div>
         </section>
 
         <section id="analytics" class="section">
           <h2 class="section-title">Analytics</h2>
+          <div class="input-container">
+            <form action="/analytics" method="get">
+              <input
+                type="url"
+                id="long-url"
+                name="original_url"
+                class="input"
+                placeholder="Enter Long URL"
+              />
+              <button class="button" type="submit">GENERATE QR-CODE</button>
+            </form>
+          </div>
         </section>
 
         <section id="link-history" class="section">
@@ -71,8 +121,62 @@
 
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2024 Scissor - URL Shortener</p>
+        <section id="about">
+          <h2>About</h2>
+          <p>
+            Welcome to our URL shortening service! We provide a simple and
+            efficient way to shorten your long URLs, making them easier to share
+            and manage.
+          </p>
+          <p>
+            Our platform offers reliable and fast URL shortening with
+            customizable options to suit your needs. Whether you're sharing
+            links on social media, email, or any other platform, we've got you
+            covered.
+          </p>
+        </section>
+
+        <section id="faq">
+          <h2>FAQs</h2>
+          <h3>How does URL shortening work?</h3>
+          <p>
+            URL shortening works by taking a long URL and creating a shorter,
+            unique alias. When someone clicks on the shortened URL, they are
+            redirected to the original long URL.
+          </p>
+          <h3>Is URL shortening safe?</h3>
+          <p>
+            Yes, URL shortening is safe as long as you use a reputable service.
+            However, it's important to be cautious when clicking on shortened
+            links from unknown sources, as they could potentially lead to
+            malicious websites.
+          </p>
+          <h3>Can I customize my shortened URLs?</h3>
+          <p>
+            Yes, our platform allows you to customize your shortened URLs with a
+            unique alias that reflects your brand or content.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2>Contact Us</h2>
+          <p>
+            If you have any questions, feedback, or concerns, feel free to reach
+            out to us using the contact form below:
+          </p>
+          <form action="#" method="post">
+            <label for="name">Name:</label><br />
+            <input type="text" id="name" name="name" /><br />
+            <label for="email">Email:</label><br />
+            <input type="email" id="email" name="email" /><br />
+            <label for="message">Message:</label><br />
+            <textarea id="message" name="message" rows="4" cols="50"></textarea
+            ><br />
+            <input type="submit" value="Submit" />
+          </form>
+        </section>
       </div>
+      <p>&copy; 2024 Scissor - URL Shortener</p>
     </footer>
 
     <!-- <script src="/app/static/scissor/JS/index.js"></script> -->

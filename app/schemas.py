@@ -11,6 +11,10 @@ class URLRequest(BaseModel):
     url: str
 
 
+class LongURLRequest(BaseModel):
+    long_url: str
+
+
 class ShortenedURL(BaseModel):
     shortened_url: str
 

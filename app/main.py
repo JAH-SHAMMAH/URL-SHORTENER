@@ -9,9 +9,9 @@ import qrcode
 from io import BytesIO
 from starlette.responses import StreamingResponse
 from app.utils import *
-from schemas import *
-from database import *
-from models import *
+from app.schemas import *
+from app.database import *
+from app.models import *
 import string
 import random
 

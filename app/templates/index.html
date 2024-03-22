@@ -36,6 +36,13 @@
                 class="input"
                 placeholder="Enter Long URL"
               />
+              <input
+                type="text"
+                id="custom-url"
+                name="custom_url"
+                class="input"
+                placeholder="Enter Custom Name"
+              />
               <button class="button" type="submit">SHORTEN URL</button>
             </form>
           </div>
@@ -49,34 +56,10 @@
           </div>
         </section>
 
-        <section id="custom-urls" class="section">
-          <h2 class="section-title">Custom URLs</h2>
-          <div class="input-container">
-            <form action="/custom_shorten" method="post">
-              <input
-                type="url"
-                id="long-url"
-                name="original_url"
-                class="input"
-                placeholder="Enter Custom URL"
-              />
-              <button class="button" type="submit">CUSTOMIZE URL</button>
-            </form>
-          </div>
-          <div>
-            <a
-              href="http://127.0.0.1:8000/{{new_url}}"
-              target="_blank"
-              rel="noopener noreferrer"
-              >{{new_url}}</a
-            >
-          </div>
-        </section>
-
         <section id="qr-code-generation" class="section">
           <h2 class="section-title">QR Code Generation</h2>
           <div class="input-container">
-            <form action="/generate_qr" method="get">
+            <form action="/generate_qr" method="post">
               <input
                 type="url"
                 id="long-url"
@@ -100,15 +83,15 @@
         <section id="analytics" class="section">
           <h2 class="section-title">Analytics</h2>
           <div class="input-container">
-            <form action="/analytics" method="get">
+            <form action="/link-analytics" method="get">
               <input
-                type="url"
-                id="long-url"
-                name="original_url"
+                type="text"
+                id="short-url"
+                name="short_url"
                 class="input"
-                placeholder="Enter Long URL"
+                placeholder="Enter Short URL"
               />
-              <button class="button" type="submit">GENERATE QR-CODE</button>
+              <button class="button" type="submit">SHOW ANALYTICS</button>
             </form>
           </div>
         </section>
@@ -176,9 +159,7 @@
           </form>
         </section>
       </div>
-      <p>&copy; 2024 Scissor - URL Shortener</p>
+      <p>&copy; Scissor - URL Shortener in partnership with SHAMMAH-BADMAN</p>
     </footer>
-
-    <!-- <script src="/app/static/scissor/JS/index.js"></script> -->
   </body>
 </html>

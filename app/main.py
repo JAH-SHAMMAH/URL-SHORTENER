@@ -120,12 +120,12 @@ async def get_link_analytics(short_url: str = Form(), db: Session = Depends(get_
     return url_record.click_count
 
 
-@app.get("/history/{user_id}")
-async def get_user_link_history(user_id: int, db: Session = Depends(get_db)):
-    user_history = db.query(URL).filter(URL.creator_id == user_id).all()
-    if not user_history:
-        raise HTTPException(status_code=404, detail="User history not found")
-    return user_history
+# @app.get("/history/{user_id}")
+# async def get_user_link_history(user_id: int, db: Session = Depends(get_db)):
+#     user_history = db.query(URL).filter(URL.creator_id == user_id).all()
+#     if not user_history:
+#         raise HTTPException(status_code=404, detail="User history not found")
+#     return user_history
 
 
 @app.get("/{shortened_url}")

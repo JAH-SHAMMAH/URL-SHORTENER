@@ -4,7 +4,8 @@ from sqlalchemy.orm import sessionmaker, Session
 
 Base = declarative_base()
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:guarantee@localhost:5432/Url_db"
+# SQLALCHEMY_DATABASE_URL = "postgresql://postgres:guarantee@localhost:5432/Url_db"
+SQLALCHEMY_DATABASE_URL = "postgres://btbhnuhn:Q2Qy6CC1qUibTUAE-qKbBo6-5T2DGxdX@rain.db.elephantsql.com:5432/btbhnuhn"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

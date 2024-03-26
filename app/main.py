@@ -1,5 +1,15 @@
-from fastapi import FastAPI, HTTPException, Depends, Request, Response, status, Form
+from fastapi import (
+    FastAPI,
+    HTTPException,
+    Depends,
+    Request,
+    Response,
+    status,
+    Form,
+    Query,
+)
 from fastapi.security import APIKeyHeader
+from typing import Optional
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, RedirectResponse
 from datetime import datetime, timedelta
@@ -112,12 +122,17 @@ def record_analytics(request: Request):
 
 
 @app.get("/link-analytics")
-async def get_link_analytics(short_url: str = Form(), db: Session = Depends(get_db)):
+async def get_link_analytics(
+    short_url: Optional[str] = Query(None, min_length=1), db: Session = Depends(get_db)
+):
+    if not short_url:
+        raise HTTPException(status_code=400, detail="Short URL is required")
+
     url_record = db.query(URL).filter(URL.shortened_url == short_url).first()
     if not url_record:
         raise HTTPException(status_code=404, detail="URL not found in link history")
 
-    return url_record.click_count
+    return {"click_count": url_record.click_count}
 
 
 # @app.get("/history/{user_id}")

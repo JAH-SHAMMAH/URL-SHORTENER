@@ -79,13 +79,6 @@ async def create_custom_url(
     return new_url
 
 
-# @app.get("/")
-# @app.post("/shorten_url/")
-# async def shorten_url(longurl_request: LongURLRequest):
-#     long_url = longurl_request.long_url
-#     return {"long_url": long_url, "short_url": f"http://your-domain.com/{shorten_url}"}
-
-
 @app.get("/download-qrcode")
 async def download_qr_code_form(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
@@ -111,13 +104,6 @@ async def generate_qr(original_url: str = Form(...)):
 
 @app.get("/analytics")
 def record_analytics(request: Request):
-    # db_url = db.query(URL).filter(URL.shortened_url == shortened_url).first()
-    # if db_url is None:
-    #     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="not found")
-
-    # db_url.click_count += 1
-    # db_url.last_accessed = datetime.datetime.utcnow()
-
     return templates.TemplateResponse("index.html", {"request": Request})
 
 
@@ -133,14 +119,6 @@ async def get_link_analytics(
         raise HTTPException(status_code=404, detail="URL not found in link history")
 
     return {"click_count": url_record.click_count}
-
-
-# @app.get("/history/{user_id}")
-# async def get_user_link_history(user_id: int, db: Session = Depends(get_db)):
-#     user_history = db.query(URL).filter(URL.creator_id == user_id).all()
-#     if not user_history:
-#         raise HTTPException(status_code=404, detail="User history not found")
-#     return user_history
 
 
 @app.get("/{shortened_url}")
@@ -161,6 +139,3 @@ async def redirect_to_original(
         )
     else:
         raise HTTPException(status_code=404, detail="URL not found")
-    # return RedirectResponse(
-    #     url=original_url, status_code=status.HTTP_308_PERMANENT_REDIRECT
-    # )

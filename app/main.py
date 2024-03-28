@@ -26,10 +26,9 @@ import string
 import random
 import app.models
 
+app.models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
-app.models.Base.metadata.create_all(bind=engine)
 
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
